@@ -12,6 +12,37 @@ int main() {
     printf("Insira o dia do nascimento: ");
     scanf("%d", &dia);
 
+    //  Validação de mês
+    if (mes < 1 || mes > 12) {
+        printf("Mês inválido! Digite um valor entre 1 e 12.\n");
+        return 0;
+    }
+
+    //  Validação de dia
+    if (dia < 1) {
+        printf("Dia inválido! O dia não pode ser menor que 1.\n");
+        return 0;
+    }
+
+    // Verificação dos dias máximos de cada mês
+    int diasNoMes;
+    switch (mes) {
+        case 2:
+            diasNoMes = 29; // fevereiro (não estamos validando ano bissexto)
+            break;
+        case 4: case 6: case 9: case 11:
+            diasNoMes = 30; // meses com 30 dias
+            break;
+        default:
+            diasNoMes = 31; // meses com 31 dias
+    }
+
+    if (dia > diasNoMes) {
+        printf("Dia inválido! O mês %d tem no máximo %d dias.\n", mes, diasNoMes);
+        return 0;
+    }
+
+    // 🔎 Cálculo do signo
     switch (mes) {
         case 1: // Janeiro
             if (dia >= 21)
@@ -96,9 +127,6 @@ int main() {
             else
                 printf("Seu signo é Sagitário\n");
             break;
-
-        default:
-            printf("Mês inválido!\n");
     }
 
     return 0;
