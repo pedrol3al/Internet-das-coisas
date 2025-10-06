@@ -5,7 +5,7 @@ int main(){
 	int M[2][2], R[2][2];
 	int l, c, maior;
 	
-	printf("Pedro Gabriel Leal Costa");                              
+	printf("Pedro Gabriel Leal Costa\n\n");                              
 	
 	printf("Digite os valores da matriz 2x2: \n");
 	for(l = 0; l < 2;l++){
